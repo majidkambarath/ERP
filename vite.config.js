@@ -19,16 +19,16 @@ export default ({ mode }) => {
         '@': path.resolve(__dirname, 'src'),
       },
     },
-    server: {
-      port: 3000,
-      proxy: {
-        '/api': {
-          target: proxy_url,
-          changeOrigin: true,
-          secure: false,
-        },
-      },
-    },
+    // server: {
+    //   port: 3000,
+    //   proxy: {
+    //     '/api': {
+    //       target: proxy_url,
+    //       changeOrigin: true,
+    //       secure: false,
+    //     },
+    //   },
+    // },
   };
   return defineConfig(config);
 };

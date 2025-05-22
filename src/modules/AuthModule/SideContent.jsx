@@ -1,5 +1,5 @@
 import { Space, Layout, Divider, Typography } from 'antd';
-import logo from '@/style/images/idurar-crm-erp.svg';
+import logo from '@/style/images/bg.jpg';
 import useLanguage from '@/locale/useLanguage';
 import { useSelector } from 'react-redux';
 
@@ -10,33 +10,23 @@ export default function SideContent() {
   const translate = useLanguage();
 
   return (
-    <Content
-      style={{
-        padding: '150px 30px 30px',
-        width: '100%',
-        maxWidth: '450px',
-        margin: '0 auto',
-      }}
-      className="sideContent"
-    >
-      <div style={{ width: '100%' }}>
-        <img
-          src={logo}
-          alt="IDURAR ERP CRM"
-          style={{ margin: '0 0 40px', display: 'block' }}
-          height={63}
-          width={220}
-        />
-
-        <Title level={1} style={{ fontSize: 28 }}>
-          Free Open Source ERP / CRM
-        </Title>
-        <Text>
-          Accounting / Invoicing / Quote App <b /> based on Node.js React.js Ant Design
-        </Text>
-
-        <div className="space20"></div>
-      </div>
-    </Content>
+    <div style={{
+      height: '90%',
+      width: '90%',
+      position: 'relative',
+      overflow: 'hidden'
+    }}>
+      <img
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover', // This will cover the entire area while maintaining aspect ratio
+          // objectFit: 'fill', // Use this if you want to stretch the image to fill exactly
+          // objectFit: 'contain', // Use this if you want the entire image visible with possible letterboxing
+        }}
+        src={logo}
+        alt="IDURAR ERP CRM"
+      />
+    </div>
   );
 }

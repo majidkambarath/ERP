@@ -10,7 +10,8 @@ export default function UpgradeButton() {
   const translate = useLanguage();
 
   return (
-    <Badge count={1} size="small">
+    <>
+ {/* <Badge count={1} size="small">
       <Button
         type="primary"
         style={{
@@ -27,7 +28,9 @@ export default function UpgradeButton() {
       >
         {translate('Try Entreprise Version')}
       </Button>
-    </Badge>
+    </Badge> */}
+    </>
+   
   );
 }
 

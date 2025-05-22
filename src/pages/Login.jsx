@@ -17,16 +17,16 @@ const LoginPage = () => {
   const translate = useLanguage();
   const { isLoading, isSuccess } = useSelector(selectAuth);
   const navigate = useNavigate();
-  // const size = useSize();
 
   const dispatch = useDispatch();
+  
   const onFinish = (values) => {
     dispatch(login({ loginData: values }));
   };
 
   useEffect(() => {
     if (isSuccess) navigate('/');
-  }, [isSuccess]);
+  }, [isSuccess, navigate]);
 
   const FormContainer = () => {
     return (
@@ -39,15 +39,25 @@ const LoginPage = () => {
             remember: true,
           }}
           onFinish={onFinish}
+          style={{
+            width: '100%',
+            maxWidth: '400px',
+          }}
         >
           <LoginForm />
-          <Form.Item>
+          <Form.Item style={{ marginBottom: 0, marginTop: '24px' }}>
             <Button
               type="primary"
               htmlType="submit"
               className="login-form-button"
               loading={isLoading}
               size="large"
+              block
+              style={{
+                height: '48px',
+                fontSize: '16px',
+                fontWeight: '500',
+              }}
             >
               {translate('Log in')}
             </Button>
@@ -57,7 +67,11 @@ const LoginPage = () => {
     );
   };
 
-  return <AuthModule authContent={<FormContainer />} AUTH_TITLE="Sign in" />;
+  return (
+    <div style={{ height: '100vh', overflow: 'hidden' }}>
+      <AuthModule authContent={<FormContainer />} AUTH_TITLE="Sign in" />
+    </div>
+  );
 };
 
 export default LoginPage;

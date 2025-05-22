@@ -5,8 +5,6 @@ import { Button, Drawer, Layout, Menu } from 'antd';
 import { useAppContext } from '@/context/appContext';
 
 import useLanguage from '@/locale/useLanguage';
-import logoIcon from '@/style/images/logo-icon.svg';
-import logoText from '@/style/images/logo-text.svg';
 
 import useResponsive from '@/hooks/useResponsive';
 
@@ -118,6 +116,7 @@ function Sidebar({ collapsible, isMobile = false }) {
     }, 200);
     return () => clearTimeout(timer);
   }, [isNavMenuClose]);
+  
   const onCollapse = () => {
     navMenu.collapse();
   };
@@ -132,14 +131,11 @@ function Sidebar({ collapsible, isMobile = false }) {
       style={{
         overflow: 'auto',
         height: '100vh',
-
         position: isMobile ? 'absolute' : 'relative',
         bottom: '20px',
         ...(!isMobile && {
-          // border: 'none',
           ['left']: '20px',
           top: '20px',
-          // borderRadius: '8px',
         }),
       }}
       theme={'light'}
@@ -149,21 +145,25 @@ function Sidebar({ collapsible, isMobile = false }) {
         onClick={() => navigate('/')}
         style={{
           cursor: 'pointer',
+          padding: '10px 24px',
+          textAlign: 'center',
+          borderBottom: '1px solid #f0f0f0',
+          marginBottom: '8px',
         }}
       >
-        <img src={logoIcon} alt="Logo" style={{ marginLeft: '-5px', height: '40px' }} />
-
-        {!showLogoApp && (
-          <img
-            src={logoText}
-            alt="Logo"
-            style={{
-              marginTop: '3px',
-              marginLeft: '10px',
-              height: '38px',
-            }}
-          />
-        )}
+        <h1
+          style={{
+            margin: 0,
+            fontSize: isNavMenuClose ? '18px' : '24px',
+            fontWeight: 'bold',
+            color: '#1890ff',
+            transition: 'all 0.3s ease',
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+          }}
+        >
+          {isNavMenuClose ? 'ERP' : 'ERP-CRM'}
+        </h1>
       </div>
       <Menu
         items={items}
@@ -200,7 +200,6 @@ function MobileSidebar() {
       </Button>
       <Drawer
         width={250}
-        // style={{ backgroundColor: 'rgba(255, 255, 255, 1)' }}
         placement={'left'}
         closable={false}
         onClose={onClose}

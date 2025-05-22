@@ -19,25 +19,35 @@ const AuthModule = ({ authContent, AUTH_TITLE, isForRegistre = false }) => {
           padding: isForRegistre ? '40px 30px 30px' : '100px 30px 30px',
           maxWidth: '440px',
           margin: '0 auto',
+          height: '100vh', // Ensure full viewport height
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center', // Center content vertically
         }}
       >
-        <Col xs={{ span: 24 }} sm={{ span: 24 }} md={{ span: 0 }} span={0}>
-          <img
-            src={logo}
-            alt="Logo"
-            style={{
-              margin: '0px auto 20px',
-              display: 'block',
-            }}
-            height={63}
-            width={220}
-          />
-          <div className="space10" />
-        </Col>
-        <Title level={1}>{translate(AUTH_TITLE)}</Title>
+        <div>
+          <Col xs={{ span: 24 }} sm={{ span: 24 }} md={{ span: 0 }} span={0}>
+            <img
+              src={logo}
+              alt="Logo"
+              style={{
+                margin: '0px auto 20px',
+                display: 'block',
+              }}
+              height={63}
+              width={220}
+            />
+            <div className="space10" />
+          </Col>
+          
+          <Title level={1} style={{ textAlign: 'center', marginBottom: '24px' }}>
+            {translate(AUTH_TITLE)}
+          </Title>
 
-        <Divider />
-        <div className="site-layout-content">{authContent}</div>
+          <Divider />
+          
+          <div className="site-layout-content">{authContent}</div>
+        </div>
       </Content>
     </AuthLayout>
   );

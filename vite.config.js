@@ -9,7 +9,7 @@ export default ({ mode }) => {
   const proxy_url =
     process.env.VITE_DEV_REMOTE === 'remote'
       ? process.env.VITE_BACKEND_SERVER
-      : 'https://erp-node-ub9b.onrender.com/';
+      : 'http://localhost:8888/';
 
   const config = {
     plugins: [react()],
@@ -20,7 +20,7 @@ export default ({ mode }) => {
       },
     },
     server: {
-      port: 3040,
+      port: 3000,
       proxy: {
         '/api': {
           target: proxy_url,
